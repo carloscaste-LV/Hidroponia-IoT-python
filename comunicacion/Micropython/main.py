@@ -1,7 +1,7 @@
 
 
 #==========================================Librerias=======================================#
-import esp
+
 import time
 from machine import RTC
 
@@ -60,6 +60,12 @@ def TEMPERATURA():
 def PH(): 
   return Uaart(b'4').decode('utf-8')
 
+#=========================================Actuadores=============================================# 
+def Bomba():
+    estado=firebase.get(URL+"bomba")  
+    estado=(int(estado)).decode()
+    return Uaart(estado).decode('utf-8')
+
 #================================Transmicion de datos tiempo real===============================#
 
   
@@ -77,19 +83,24 @@ def  mensaje():
                          'Sensor/Sensor1/'+str(i)+"/distancia": DISTANCIA(),
                          'Sensor/Sensor1/'+str(i)+"/ph": PH(),
                          'Sensor/Sensor1/'+str(i)+"/temperatura": TEMPERATURA()})
+
+
+
+    
+    
     time.sleep(56)
    
   
-def excepciones():
 
-
-  while(1):
+while(1):
     try:
       mensaje()
+      Bomba()
+      time.sleep(1)
     except:
-      pass
-
-excepciones() 
+      Uaart(b'5').decode('utf-8') #Apagar bomba
+      startup.wlan_connect("MEGACABLE-UZ7BSY", "93214985")
+ 
 
 
 #=================================================================================================#
