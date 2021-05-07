@@ -9,11 +9,18 @@ char resulttds[20];
 char resultdis[20];
 char resulttemp[20];
 char resultph[20];
+
+int rele=8;
+
+
+
+
 SoftwareSerial mySerial(0, 1); // RX, TX
 void setup()
 {
   // Open serial communications and wait for port to open:
   mySerial.begin(115200);
+  pinMode(8, OUTPUT);
   delay(1000*5);
   
 }
@@ -65,8 +72,23 @@ void loop() // run ovehr and over
     }  
     if(lectura == '4'){
       mySerial.write(resultph);
-     
 
+    }
+    //Apagar y encender Bomba
+        
+        if(lectura == '5'){
+          digitalWrite(rele, HIGH); 
+          mySerial.write('1');
+        }  
+        if(lectura == '6'){
+          digitalWrite(rele, LOW);
+          mySerial.write('1');  
+    //////////////////////////
+
+
+      
+     
+    
    }       
  }
 }
