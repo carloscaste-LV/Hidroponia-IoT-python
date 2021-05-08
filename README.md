@@ -21,7 +21,7 @@ La idea de utilizar el framework MycroPython es manejar la mayor parte del proye
 -   Un IDE para programar.
 -   El framework que instalaremos en nuestro ESP8266.
 
-El IDE utilizado fue [uPyCraft]( https://randomnerdtutorials.com/uPyCraftWindows) y el framework fue descargado desde la pagina oficial de [MycroPython](https://micropython.org/download/esp8266/). Para comunicar ESP8266 con firebase utilizamos los módulos  publicados por [vishal-android-freak](https://github.com/vishal-android-freak/firebase-micropython-esp32) los cuales fueron programados para utilizarse en la tarjeta ESP32 por lo que tiene algunos métodos que nuestra tarjeta no soporta y de intentar usarlos nuestro Código no funcionara, en particular el método que debemos eliminar es __thread__.
+El IDE utilizado fue [uPyCraft]( https://randomnerdtutorials.com/uPyCraftWindows) y el framework fue descargado desde la pagina oficial de [MycroPython](https://micropython.org/download/esp8266/). Para comunicar ESP8266 con firebase utilizamos los módulos  publicados por [vishal-android-freak](https://github.com/vishal-android-freak/firebase-micropython-esp32) los cuales fueron programados para utilizarse en la tarjeta ESP32 por lo que tiene algunos métodos que nuestra tarjeta no soporta y de intentar usarlos nuestro código no funcionara, en particular el método que debemos eliminar es __thread__.
 
 # _Arduino_
 >“Arduino es una compañía de desarrollo de software y hardware libres, así como una comunidad internacional que diseña y manufactura placas de desarrollo de hardware para construir dispositivos digitales y dispositivos interactivos que puedan detectar y controlar objetos del mundo real”.
