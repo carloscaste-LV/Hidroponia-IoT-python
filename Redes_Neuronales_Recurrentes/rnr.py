@@ -79,7 +79,7 @@ for i in range(1):
     regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
     
     # Encajando Red Neuronal En Set de Entrenamiento
-    regressor.fit(X_train, y_train, epochs = 200, batch_size = 32)
+    regressor.fit(X_train, y_train, epochs = 300, batch_size = 32)
     
     
     
@@ -110,7 +110,7 @@ for i in range(1):
         return X_test
     
     #Contruir matriz 
-    X_test = np.concatenate([ColumnaTest("Sensor__Sensor1__ph"),
+    X_test = np.concatenate([ColumnaTest("Sensor__Sensor1__temperatura"),
                             ColumnaTest("Sensor__Sensor1__ph")],axis=2)
     
     
@@ -125,7 +125,7 @@ for i in range(1):
     for i in range(88):
         prediccion.append(predicted_ph[i,0])
     for i in range(168):
-        prediccion.append(predicted_ph[88,i])
+        prediccion.append(predicted_ph[87,i])
     # Visualizando Resultados
     plt.plot(real_ph_price, color = 'black', label = 'Real pH',linewidth=1)
     plt.plot(prediccion, color = 'black', label = 'Predicted pH', linestyle="-.",  linewidth=1)
