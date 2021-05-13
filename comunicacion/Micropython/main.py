@@ -61,7 +61,7 @@ def PH():
   return Uaart(b'4').decode('utf-8')
 
 #=========================================Actuadores=============================================# 
-def Bomba():
+def Bomba_2():
     estado=firebase.get(URL+"bomba")  
     estado=(int(estado)).decode()
     return Uaart(estado).decode('utf-8')
@@ -95,7 +95,7 @@ def  mensaje():
 while(1):
     try:
       mensaje()
-      Bomba()
+      Bomba_2()
       time.sleep(1)
     except:
       Uaart(b'5').decode('utf-8') #Apagar bomba
